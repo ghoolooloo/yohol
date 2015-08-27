@@ -82,12 +82,12 @@
   	<repository>
   	  <id>releases</id>
   	  <name>Releases</name>
-  	  <url>http://172.16.6.200:8081/nexus/content/repositories/releases/</url>
+  	  <url>http://172.16.160.10:8081/nexus/content/repositories/releases/</url>
   	</repository>
   	<snapshotRepository>
   	  <id>snapshots</id>
   	  <name>Snapshots</name>
-  	  <url>http://172.16.6.200:8081/nexus/content/repositories/snapshots/</url>
+  	  <url>http://172.16.160.10:8081/nexus/content/repositories/snapshots/</url>
   	</snapshotRepository>
   </distributionManagement>
   <profiles>
