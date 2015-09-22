@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.compiler.plugin>3.1</version.compiler.plugin>
         <version.jboss.bom>8.2.1.Final</version.jboss.bom>
-        <version.org.jboss.resteasy>3.0.10.Final</version.org.jboss.resteasy>
+        <version.org.jboss.resteasy>3.0.12.Final</version.org.jboss.resteasy>
         <version.surefire.plugin>2.16</version.surefire.plugin>
         <version.war.plugin>2.5</version.war.plugin>
         <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
@@ -30,6 +30,18 @@
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>skeleton-key-core</artifactId>
+                <version>${version.org.jboss.resteasy}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-client</artifactId>
+                <version>${version.org.jboss.resteasy}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jackson-provider</artifactId>
                 <version>${version.org.jboss.resteasy}</version>
                 <scope>provided</scope>
             </dependency>
