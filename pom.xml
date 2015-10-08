@@ -27,12 +27,9 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>skeleton-key-core</artifactId>
-                <version>${version.org.jboss.resteasy}</version>
-                <scope>provided</scope>
-            </dependency> -->
+            <!-- <dependency> <groupId>org.jboss.resteasy</groupId> <artifactId>skeleton-key-core</artifactId> 
+                <version>${version.org.jboss.resteasy}</version> <scope>provided</scope> 
+                </dependency> -->
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
@@ -98,10 +95,17 @@
         </snapshotRepository>
     </distributionManagement>
     <profiles>
-        <profile>
+        <profile><!-- dev -->
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <hibernate.dialect>org.hibernate.dialect.H2Dialect</hibernate.dialect>
+                <hibernate.show_sql>true</hibernate.show_sql>
+                <triage.ds>java:jboss/datasources/h2DS</triage.ds>
+                <hibernate.format_sql>true</hibernate.format_sql>
+                <hibernate.hbm2ddl.auto>create-drop</hibernate.hbm2ddl.auto>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -116,6 +120,13 @@
         </profile>
         <profile>
             <id>arq-wildfly-managed</id>
+            <properties>
+                <hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
+                <hibernate.show_sql>true</hibernate.show_sql>
+                <triage.ds>java:jboss/datasources/TriageDS</triage.ds>
+                <hibernate.format_sql>true</hibernate.format_sql>
+                <hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
+            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.wildfly</groupId>
@@ -126,6 +137,13 @@
         </profile>
         <profile>
             <id>arq-wildfly-remote</id>
+            <properties>
+                <hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
+                <hibernate.show_sql>true</hibernate.show_sql>
+                <triage.ds>java:jboss/datasources/TriageDS</triage.ds>
+                <hibernate.format_sql>true</hibernate.format_sql>
+                <hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
+            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.wildfly</groupId>
@@ -135,7 +153,24 @@
             </dependencies>
         </profile>
         <profile>
+            <id>product</id>
+            <properties>
+                <hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
+                <hibernate.show_sql>false</hibernate.show_sql>
+                <triage.ds>java:jboss/datasources/TriageDS</triage.ds>
+                <hibernate.format_sql>false</hibernate.format_sql>
+                <hibernate.hbm2ddl.auto>none</hibernate.hbm2ddl.auto>
+            </properties>
+        </profile>
+        <profile>
             <id>openshift</id>
+            <properties>
+                <hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
+                <hibernate.show_sql>false</hibernate.show_sql>
+                <triage.ds>java:jboss/datasources/TriageDS</triage.ds>
+                <hibernate.format_sql>false</hibernate.format_sql>
+                <hibernate.hbm2ddl.auto>none</hibernate.hbm2ddl.auto>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
