@@ -12,8 +12,8 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.compiler.plugin>3.1</version.compiler.plugin>
-        <version.jboss.bom>8.2.1.Final</version.jboss.bom>
-        <version.org.jboss.resteasy>3.0.12.Final</version.org.jboss.resteasy>
+        <version.jboss.bom>10.0.0.Final</version.jboss.bom>
+        <version.org.jboss.resteasy>3.0.14.Final</version.org.jboss.resteasy>
         <version.poi>3.8</version.poi>
         <version.kie.bom>6.3.0.Final</version.kie.bom>
         <version.surefire.plugin>2.16</version.surefire.plugin>
@@ -24,7 +24,7 @@
         <dependencies>
             <dependency>
                 <groupId>org.wildfly.bom</groupId>
-                <artifactId>jboss-javaee-7.0-with-all</artifactId>
+                <artifactId>wildfly-javaee7</artifactId>
                 <version>${version.jboss.bom}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -43,7 +43,6 @@
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
                 <version>${version.org.jboss.resteasy}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
@@ -59,7 +58,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.36</version>
+                <version>5.1.18</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
