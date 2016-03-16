@@ -150,13 +150,13 @@
                 <hibernate.format_sql>true</hibernate.format_sql>
                 <hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
             </properties>
-            <dependencies>
+            <!-- <dependencies>
                 <dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-arquillian-container-managed</artifactId>
                     <scope>test</scope>
                 </dependency>
-            </dependencies>
+            </dependencies> -->
         </profile>
         <profile>
             <id>arq-wildfly-remote</id>
@@ -167,13 +167,13 @@
                 <hibernate.format_sql>true</hibernate.format_sql>
                 <hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
             </properties>
-            <dependencies>
+            <!-- <dependencies>
                 <dependency>
                     <groupId>org.wildfly</groupId>
                     <artifactId>wildfly-arquillian-container-remote</artifactId>
                     <scope>test</scope>
                 </dependency>
-            </dependencies>
+            </dependencies> -->
         </profile>
         <profile>
             <id>product</id>
