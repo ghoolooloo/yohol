@@ -145,27 +145,4 @@
             <url>http://dev.mayocase.com:8081/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
-    <profiles>
-        <profile>
-            <id>openshift</id>
-            <properties>
-                <hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
-                <hibernate.show_sql>false</hibernate.show_sql>
-                <triage.ds>java:jboss/datasources/TriageDS</triage.ds>
-                <hibernate.format_sql>false</hibernate.format_sql>
-                <hibernate.hbm2ddl.auto>none</hibernate.hbm2ddl.auto>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <configuration>
-                            <outputDirectory>deployments</outputDirectory>
-                            <warName>ROOT</warName>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
