@@ -28,23 +28,16 @@
           <groupId>org.wildfly.swarm</groupId>
           <artifactId>wildfly-swarm-plugin</artifactId>
           <version>${version.wildfly-swarm}</version>
+          <configuration>
+            <jvmArguments>
+              <jvmArgument>-Xmx128m</jvmArgument>
+            </jvmArguments>
+          </configuration>
           <executions>
             <execution>
-              <id>start</id>
-              <phase>pre-integration-test</phase>
+              <id>package</id>
               <goals>
-                <goal>start</goal>
-              </goals>
-              <configuration>
-                <stdoutFile>target/stdout.log</stdoutFile>
-                <stderrFile>target/stderr.log</stderrFile>
-              </configuration>
-            </execution>
-            <execution>
-              <id>stop</id>
-              <phase>post-integration-test</phase>
-              <goals>
-                <goal>stop</goal>
+                <goal>package</goal>
               </goals>
             </execution>
           </executions>
@@ -55,6 +48,42 @@
           <version>${version.kie.bom}</version>
           <extensions>true</extensions>
         </plugin>
+        <plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-failsafe-plugin</artifactId>
+			    <version>2.19.1</version>
+			    <configuration>
+	          <includes>
+	            <include>**/*IT.java</include>
+	          </includes>
+	          <systemPropertyVariables>
+	            <phantomjs.binary.version>2.1.1</phantomjs.binary.version>
+	            <org.apache.maven.user-settings>${session.request.userSettingsFile.path}</org.apache.maven.user-settings>
+	          </systemPropertyVariables>
+	        </configuration>
+	        <executions>
+	          <execution>
+	            <goals>
+	              <goal>integration-test</goal>
+	              <goal>verify</goal>
+	            </goals>
+	          </execution>
+	        </executions>
+				</plugin>
+				<plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.19.1</version>
+          <configuration>
+            <systemPropertyVariables>
+              <org.apache.maven.user-settings>${session.request.userSettingsFile.path}</org.apache.maven.user-settings>
+            </systemPropertyVariables>
+          </configuration>
+        </plugin>
+        <plugin>
+	        <groupId>com.spotify</groupId>
+	        <artifactId>docker-maven-plugin</artifactId>
+	        <version>0.4.13</version>
+	      </plugin>
       </plugins>
     </pluginManagement>
   </build>
