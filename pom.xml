@@ -169,6 +169,11 @@
 	      <artifactId>postgresql</artifactId>
 	      <version>${version.postgresql}</version>
 	    </dependency>
+      <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongo-java-driver</artifactId>
+        <version>${version.mongo}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
