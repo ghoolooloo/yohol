@@ -5,7 +5,7 @@
   <groupId>net.yohol</groupId>
   <artifactId>yohol</artifactId>
   <name>Yohol Parent Bom</name>
-  <version>2.2.2</version>
+  <version>2.2.3</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -13,14 +13,18 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.wildfly-swarm>2017.6.0</version.wildfly-swarm>
+    <version.wildfly-swarm>2017.6.1</version.wildfly-swarm>
     <version.kie>7.1.0.Beta1</version.kie>
-    <version.hibernate-ogm>5.1.0.Final</version.hibernate-ogm>
     <version.hibernate>5.1.4.Final</version.hibernate>
     <version.mongo>3.4.2</version.mongo>
+    <version.fongo>2.1.0</version.fongo>
     <version.h2>1.4.194</version.h2>
     <version.postgresql>9.4.1212</version.postgresql>
     <version.mysql>5.1.41</version.mysql>
+    <version.arquillian>1.1.13.Final</version.arquillian>
+    <version.arquillian-drone-bom>2.2.0</version.arquillian-drone-bom>
+    <version.failsafe>2.20</version.failsafe>
+    <version.surefire>2.20</version.surefire>
   </properties>
 
   <build>
@@ -54,7 +58,7 @@
         <plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-failsafe-plugin</artifactId>
-			    <version>2.19.1</version>
+			    <version>${version.failsafe}</version>
 			    <configuration>
 	          <includes>
 	            <include>**/*IT.java</include>
@@ -75,7 +79,7 @@
 				</plugin>
 				<plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.19.1</version>
+          <version>${version.surefire}</version>
           <configuration>
             <systemPropertyVariables>
               <org.apache.maven.user-settings>${session.request.userSettingsFile.path}</org.apache.maven.user-settings>
@@ -130,21 +134,14 @@
       <dependency>
         <groupId>org.jboss.arquillian</groupId>
         <artifactId>arquillian-bom</artifactId>
-        <version>1.1.13.Final</version>
+        <version>${version.arquillian}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>org.jboss.arquillian.extension</groupId>
         <artifactId>arquillian-drone-bom</artifactId>
-        <version>2.0.1.Final</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.hibernate.ogm</groupId>
-        <artifactId>hibernate-ogm-bom</artifactId>
-        <version>${version.hibernate-ogm}</version>
+        <version>${version.arquillian-drone-bom}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -179,6 +176,12 @@
         <artifactId>mongo-java-driver</artifactId>
         <version>${version.mongo}</version>
       </dependency>
+      <dependency>
+	    <groupId>com.github.fakemongo</groupId>
+	    <artifactId>fongo</artifactId>
+	    <version>${version.fongo}</version>
+	    <scope>test</scope>
+	  </dependency>
     </dependencies>
   </dependencyManagement>
 
