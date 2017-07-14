@@ -5,7 +5,7 @@
   <groupId>net.yohol</groupId>
   <artifactId>yohol</artifactId>
   <name>Yohol Parent Bom</name>
-  <version>2.2.3</version>
+  <version>2.2.4</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -13,8 +13,9 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.wildfly-swarm>2017.6.1</version.wildfly-swarm>
-    <version.kie>7.1.0.Beta1</version.kie>
+    <version.javaee-api>7.0</version.javaee-api>
+    <version.wildfly-swarm>2017.7.0</version.wildfly-swarm>
+    <version.kie>7.1.0.Beta3</version.kie>
     <version.hibernate>5.1.4.Final</version.hibernate>
     <version.mongo>3.4.2</version.mongo>
     <version.fongo>2.1.0</version.fongo>
@@ -25,6 +26,7 @@
     <version.arquillian-drone-bom>2.2.0</version.arquillian-drone-bom>
     <version.failsafe>2.20</version.failsafe>
     <version.surefire>2.20</version.surefire>
+    <version.spotify.docker-maven-plugin>1.0.0</version.spotify.docker-maven-plugin>
   </properties>
 
   <build>
@@ -89,7 +91,7 @@
         <plugin>
 	        <groupId>com.spotify</groupId>
 	        <artifactId>docker-maven-plugin</artifactId>
-	        <version>0.4.13</version>
+	        <version>${version.spotify.docker-maven-plugin}</version>
 	      </plugin>
       </plugins>
     </pluginManagement>
@@ -148,7 +150,7 @@
       <dependency>
         <groupId>javax</groupId>
         <artifactId>javaee-api</artifactId>
-        <version>7.0</version>
+        <version>${version.javaee-api}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
