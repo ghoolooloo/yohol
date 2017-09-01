@@ -5,7 +5,7 @@
   <groupId>net.yohol</groupId>
   <artifactId>yohol</artifactId>
   <name>Yohol Parent Bom</name>
-  <version>2.3.0</version>
+  <version>2.3.1</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -18,7 +18,7 @@
     <version.kie>7.1.0.Beta3</version.kie>
     <version.kafka>0.11.0.0</version.kafka>
     <version.hibernate>5.1.4.Final</version.hibernate>
-    <version.mongo>3.4.2</version.mongo>
+    <version.mongo>3.5.0</version.mongo>
     <version.fongo>2.1.0</version.fongo>
     <version.h2>1.4.194</version.h2>
     <version.postgresql>9.4.1212</version.postgresql>
